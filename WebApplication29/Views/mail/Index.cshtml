@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{ 
+
+    ViewBag.Title = "Index";
+
+
+}
+
+@using (Html.BeginForm("Index", "Mail", FormMethod.Post))
+{
+
+    <p>To:</p>@Html.TextBox("to", "", new { @class = "Form-control" })
+    <p>From:</p>@Html.TextBox("from", "", new { @class = "Form-control" })
+    <p > Password:</p>@Html.Password("password", "", new { @class = "Form-control" })
+    <p > Subject:</p>@Html.TextBox("subject", "", new { @class = "Form-control" })
+    <p > Message:</p>@Html.TextBox("message", "", new { @class = "Form-control" })
+
+
+    <input id="Submit" type="submit" class="btn-btn-sucess"  value="submit"/>
+
+
+}
+
+@if (ViewBag.msg != null)
+{
+    if (ViewBag.msg == "Mail Sent!!")
+    {
+        <p class="text-sucess">@ViewBag.msg</p>
+
+    }
+
+    else
+    {
+        <p class="text-danger">@ViewBag.msg</p>
+    }
+}
+
